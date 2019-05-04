@@ -1,0 +1,17 @@
+- if notice
+  .alert.alert-success.alert-dismissible role="alert"
+    button.close data-dismiss="alert" type="button"  &times;
+    .alert-icon.icon-part-success
+      i.fa.fa-check
+    .alert-message
+      span
+        strong = notice
+
+- elsif alert
+  .alert.alert-danger.alert-dismissible role="alert"
+    button.close data-dismiss="alert" type="button"  &times;
+    .alert-icon.icon-part-danger
+      i.fa.fa-times
+    .alert-message
+      span
+        strong = alert

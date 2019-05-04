@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand[href="#"]
+    | Movies App
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #navbarText.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link[href="#"]
+          | Crear Pelicula
+      li.nav-item
+        a.nav-link[href="#"]
+          | Todas Las Peliculas
+      li.nav-item
+        a.nav-link[href="#"]
+          | Peliculas Recomendadas
+    span.navbar-text
+    - if user_signed_in?
+      = link_to('Logout', destroy_user_session_path, method: :delete)
+    - else
+      = link_to('Login', new_user_session_path)

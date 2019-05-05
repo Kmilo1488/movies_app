@@ -11,4 +11,9 @@ html
     = render 'shared_partials/navbar'
     = render 'shared_partials/messages'
     .container
-      = yield
+      .row
+        .col-md-9
+          = yield
+        - if user_signed_in?
+          .col.md-3
+            = render 'shared_partials/recommended'

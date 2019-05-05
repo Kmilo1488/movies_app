@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, only: [:index]
 
   def index
+    redirect_to movies_path
   end
 
   def configure_permitted_parameters

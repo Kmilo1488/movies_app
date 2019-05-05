@@ -1,12 +1,9 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  a.navbar-brand[href="#"]
-    | Movies App
+  = link_to 'Movies App', root_path, class: 'navbar-brand'
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
   #navbarText.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-      li.nav-item
-        = link_to 'Peliculas', movies_path, class: 'nav-link'
     span.navbar-text
     - if user_signed_in?
       = link_to('Logout', destroy_user_session_path, method: :delete)

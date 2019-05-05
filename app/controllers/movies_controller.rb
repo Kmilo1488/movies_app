@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
   end
 
   def recommended
+    @recommended = Movie.all.sample(5)
+    render json: @recommended
   end
 
   def new

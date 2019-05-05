@@ -1,2 +1,6 @@
-h1 Movies#create
-p Find me in app/views/movies/create.html.slim
+= form_for @movie do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.label :year
+  = f.number_field :year, order: [:year], start_year: 1980
+  = f.submit

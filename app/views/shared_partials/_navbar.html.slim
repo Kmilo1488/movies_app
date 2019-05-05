@@ -6,14 +6,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   #navbarText.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       li.nav-item
-        a.nav-link[href="#"]
-          | Crear Pelicula
+        = link_to 'crear pelicula', new_movie_path, class: 'nav-link'
       li.nav-item
-        a.nav-link[href="#"]
-          | Todas Las Peliculas
-      li.nav-item
-        a.nav-link[href="#"]
-          | Peliculas Recomendadas
+        = link_to 'Todas las peliculas', movies_path, class: 'nav-link'
     span.navbar-text
     - if user_signed_in?
       = link_to('Logout', destroy_user_session_path, method: :delete)

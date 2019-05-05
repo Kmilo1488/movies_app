@@ -1,0 +1,9 @@
+tr
+  td = movie.title
+  td = movie.year
+  td
+    span = link_to 'Go', movie_path(movie), class: 'btn btn-success'
+    span = link_to 'delete', movie_path(movie), method: :delete,
+                                                data: {confirm: 'Estas Seguto'},
+                                                remote: true,
+                                                class: 'btn btn-danger delete'

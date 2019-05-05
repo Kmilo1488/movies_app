@@ -1,6 +1,16 @@
-= form_for @movie do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :year
-  = f.number_field :year, order: [:year], start_year: 1980
-  = f.submit
+.col-md-12
+  .card
+    .card-body
+      .card-title = title_form_movie
+      hr
+      #movies_form
+        = form_for @movie, remote: true  do |f|
+          .row.align-items-center
+            .col-md-4.form-group
+              = f.label :title
+              = f.text_field :title, class: 'form-control', required: true
+            .col-md-4.form-group
+              = f.label :year
+              = f.number_field :year, order: [:year], start_year: 1980, class: 'form-control', required: true
+            .col-md-4.form-group
+              = f.submit 'Aceptar', class: 'btn btn-primary'

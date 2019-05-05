@@ -1,2 +1,8 @@
-h1 Movies#show
-p Find me in app/views/movies/show.html.slim
+
+table.table
+  thead
+    tr
+      td = @movie.title
+      td = @movie.year
+      td
+        span = link_to 'edit', edit_movie_path(@movie), class: 'btn btn-success'

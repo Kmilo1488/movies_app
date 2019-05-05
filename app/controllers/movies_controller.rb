@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @movie = Movie.new
   end
 
   def show
@@ -18,7 +19,14 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
-    redirect_to movies_path
+    respond_to do |format|
+      if @movie.save
+        format.html
+        format.js
+      else
+        render :new
+      end
+    end
   end
 
   def edit
@@ -34,7 +42,10 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    redirect_to movies_path
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   private

@@ -1,24 +1,11 @@
-# README
+# App Movies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Installation
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+$ https://github.com/Kmilo1488/movies_app.git
+$ cd movies_app
+$ bundle install
+$ rails db:setup
+```
+Register and create movies

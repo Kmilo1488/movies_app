@@ -4,10 +4,18 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     @movie = Movie.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @movies }
+    end
   end
 
   def show
     @movie = Movie.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @movie }
+    end
   end
 
   def recommended
@@ -25,6 +33,7 @@ class MoviesController < ApplicationController
       if @movie.save
         format.html
         format.js
+        format.json { render json: @movie, status: :created, location: @movie}
       else
         render :new
       end
@@ -37,8 +46,15 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    @movie.update(movie_params)
-    redirect_to movies_path
+    respond_to do |format|
+      if @movie.update(movie_params)
+        format.html { redirect_to movies_path }
+        format.json { render json: @movie, status: :created, location: @movie}
+      else
+        render json: @car.errors, status: :unprocessable_entity
+      end
+    end
+
   end
 
   def destroy
